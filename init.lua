@@ -1,6 +1,8 @@
+vim.g.mapleader = " "
+vim.g.maplocalleader = "\\"
+
 require("rhittum.lazy")
 
-vim.g.mapleader= " "
 vim.keymap.set('n', '<leader>pv', vim.cmd.Ex)
 
 vim.opt.clipboard="unnamedplus"

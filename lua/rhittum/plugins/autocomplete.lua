@@ -26,10 +26,10 @@ return {
       sources = cmp.config.sources({
         { name = "nvim_lsp" },
         { name = "luasnip" },
-        { name = "buffer" },
-        { name = "path" },
-        { name = "git" },
-      }),
+	{ name = "buffer" },
+	{ name = "path" },
+	{ name = "git" },
+}),
     })
     cmp.setup.filetype('gitcommit', {
 	    sources = cmp.config.sources({
@@ -38,7 +38,7 @@ return {
 		    { name = 'buffer' },
 	    })
     })
-    require("cmp_git").setup() 
+    require("cmp_git").setup()
 
     local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
@@ -46,7 +46,7 @@ return {
 	    capabilities = capabilities,
 	    root_dir = require('lspconfig.util').root_pattern('pom.xml', 'build.gradle', '.git'),
     }
-    require('lspconfig')['clangd'].setup {
+    require('lspconfig')['ast-grep'].setup {
 	    capabilities = capabilities,
     }
     require('lspconfig')['pyright'].setup {
@@ -55,5 +55,11 @@ return {
     require('lspconfig')['ts_ls'].setup {
 	    capabilities = capabilities,
     }
-  end,
+    require('lspconfig')['lua_ls'].setup {
+	    capabilities = capabilities,
+    }
+    require('lspconfig')['clangd'].setup {
+	    capabilities = capabilities,
+    }
+	    end,
 }
