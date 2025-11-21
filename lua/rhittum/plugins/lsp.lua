@@ -4,7 +4,7 @@ return {
     config = function()
     require("mason").setup({})
     require("mason-lspconfig").setup({
-	    ensure_installed = { "lua_ls","pyright", "ts_ls", "jdtls", "rust_analyzer", "clangd", "doctoc", },
+	    ensure_installed = { "lua_ls","pyright", "ts_ls", "jdtls", "rust_analyzer", "clangd", "yamlls", "html", },
     })
     vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Hover" })
     vim.diagnostic.config({
