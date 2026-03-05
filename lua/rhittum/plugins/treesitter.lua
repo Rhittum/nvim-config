@@ -1,11 +1,8 @@
 return {
-	'nvim-treesitter/nvim-treesitter', 
-	dependencies = {
-		'nvim-treesitter/playground',
-	},
+	'nvim-treesitter/nvim-treesitter',
 	config = function()
-	require('nvim-treesitter.configs').setup {
-		ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "markdown", "markdown_inline", "java", "javascript", "python", "lua", },
+	require('nvim-treesitter.config').setup {
+		ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "markdown", "markdown_inline", "java", "javascript", "python", "lua", "cmake", },
 
 		sync_install = false,
 

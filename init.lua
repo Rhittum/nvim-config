@@ -21,3 +21,7 @@ vim.opt.number=true
 vim.opt.relativenumber=true
 
 vim.opt.syntax= "on"
+
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+vim.opt.foldtext = ""
