@@ -1,6 +1,6 @@
 return {
 	"folke/trouble.nvim",
-	--[[ opts = {}, -- for default options, refer to the configuration section for custom setup.
+	opts = {}, -- for default options, refer to the configuration section for custom setup.
 	cmd = "Trouble",
 	icons = {
 		indent = {
@@ -75,8 +75,8 @@ return {
 			"<cmd>Trouble qflist toggle<cr>",
 			desc = "Quickfix List (Trouble)",
 		},
-	}, ]]
-	modes = {
+	},
+	--[[ modes = {
 		diagnostics = {
 			groups = {
 				{ "filename", format = "{file_icon} {basename:Title} {count}" },
@@ -98,5 +98,5 @@ return {
 		vim.keymap.set("n", "]t", function()
 			require("trouble").previous({skip_groups = true, jump = true});
 		end)
-	end
+	end ]]
 }

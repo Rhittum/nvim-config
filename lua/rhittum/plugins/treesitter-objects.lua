@@ -3,7 +3,7 @@ return {
 	after = "nvim-treesitter",
 	requires = "nvim-treesitter/nvim-treesitter",
 	config = function()
-		require("nvim-treesitter.config").setup({
+		require("nvim-treesitter").setup({
 			-- ... other ts configs
 			textobjects = {
 				move = {

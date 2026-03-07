@@ -12,7 +12,8 @@ return {
 		"L3MON4D3/LuaSnip",
 		"saadparwaiz1/cmp_luasnip",
 		"j-hui/fidget.nvim",
-		"mfussenegger/nvim-jdtls",
+		  "b0o/schemastore.nvim",
+		-- "mfussenegger/nvim-jdtls",
 	},
 
 	config = function ()
@@ -32,14 +33,7 @@ return {
 		require("fidget").setup({})
 		require("mason").setup({})
 		require("mason-lspconfig").setup({
-			ensure_installed = { "lua_ls", "pyright", "ts_ls", "rust_analyzer", "clangd", "yamlls", "html", "jdtls", "neocmake", },
-		--[[	handlers = {
-				function (server_name)
-					require("lspconfig")[server_name].setup({
-						capabilities = capabilities,
-					})
-				end,
-			} ]]
+			ensure_installed = { "lua_ls", "pyright", "ts_ls", "rust_analyzer", "clangd", "yamlls", "html", "jdtls", "neocmake", "bashls", "jsonls", },
 		})
 		vim.lsp.config('neocmake', {
 			capabilities = capabilities,
@@ -133,7 +127,21 @@ return {
 				capabilities = capabilities,
 			})
 			vim.lsp.enable('html')
-			vim.lsp.enable('jdtls')
+			vim.lsp.config.bashls = {
+				cmd = { 'bash-language-server', 'start' },
+				filetypes = { 'bash', 'sh' },
+			}
+			vim.lsp.enable 'bashls'
+			vim.lsp.config('jsonls', {
+				settings = {
+					json = {
+						schemas = require('schemastore').json.schemas(),
+						validate = { enable = true },
+					},
+				},
+			})
+			vim.lsp.enable('jsonls')
+			-- vim.lsp.enable('jdtls')
 
 			local cmp_select = { behavior = cmp.SelectBehavior.Select }
 
