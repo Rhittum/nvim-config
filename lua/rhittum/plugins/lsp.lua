@@ -12,17 +12,15 @@ return {
 		"L3MON4D3/LuaSnip",
 		"saadparwaiz1/cmp_luasnip",
 		"j-hui/fidget.nvim",
-		  "b0o/schemastore.nvim",
+		"b0o/schemastore.nvim",
 		-- "mfussenegger/nvim-jdtls",
 	},
 
 	config = function ()
 		require("conform").setup({
-			formatter_ft = {}
 		})
 		local cmp = require("cmp")
 		local cmp_lsp = require("cmp_nvim_lsp")
-		local lspconfig = require("lspconfig")
 		local capabilities = vim.tbl_deep_extend(
 			"force",
 			{},

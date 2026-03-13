@@ -22,6 +22,14 @@ vim.opt.relativenumber=true
 
 vim.opt.syntax= "on"
 
-vim.opt.foldmethod = "expr"
-vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
-vim.opt.foldtext = ""
+vim.keymap.set("n", "<leader>th", function()
+  vim.cmd("!tmux split-window -h")
+end)
+
+vim.keymap.set("n", "<leader>tv", function()
+  vim.cmd("!tmux split-window -v")
+end)
+
+--vim.opt.foldmethod = "expr"
+--vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+--vim.opt.foldtext = ""
